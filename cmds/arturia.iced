@@ -19,7 +19,7 @@ HtmlEntities = require('html-entities').AllHtmlEntities
 
 		await request
 			method: 'post'
-			url: 'http://api.arturia.io/programs'
+			url: "http://api.arturia.io/programs?secret=#{process.env.ARTURIA_SECRET}"
 			json: {
 				stack: stack,
 				files: [
@@ -43,7 +43,7 @@ HtmlEntities = require('html-entities').AllHtmlEntities
 			if i < 0
 				return
 
-			await request.get "http://api.arturia.io/programs/#{progId}", defer err, resp, body
+			await request.get "http://api.arturia.io/programs/#{progId}?secret=#{process.env.ARTURIA_SECRET}", defer err, resp, body
 			if err?
 				return console.log err
 
