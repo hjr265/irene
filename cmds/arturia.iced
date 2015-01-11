@@ -68,6 +68,10 @@ HtmlEntities = require('html-entities').AllHtmlEntities
 				ctx.say "```#{body}```"
 				return
 
+			if prog.status is 'killed'
+				ctx.say 'Program killed'
+				return
+
 			_.delay =>
 				i--
 				check()
