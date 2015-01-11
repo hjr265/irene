@@ -8,12 +8,24 @@ HtmlEntities = require('html-entities').AllHtmlEntities
 		d = d.replace(/^\s*```\s*|\s*```\s*$/g, '')
 
 		switch lang.toLowerCase()
+			when 'bash'
+				stack = 'bash4'
+				ext = 'sh'
 			when 'c'
 				stack = 'gcc4'
 				ext = 'c'
 			when 'c++'
 				stack = 'g++4'
 				ext = 'cpp'
+			when 'java'
+				stack = 'openjdk7'
+				ext = 'java'
+			when 'go'
+				stack = 'go1'
+				ext = 'go'
+			when 'python'
+				stack = 'python2'
+				ext = 'py'
 			else
 				return
 
